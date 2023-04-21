@@ -4,6 +4,7 @@ import { icons } from '../../../constants';
 import { useState } from 'react';
 
 const Welcome = ({searchTerm, setSearchTerm, handleClick}) => {
+
   return (
     <View>
       <View style={styles.container}>
@@ -21,9 +22,7 @@ const Welcome = ({searchTerm, setSearchTerm, handleClick}) => {
           />
         </View>
 
-        <TouchableOpacity style={styles.searchBtn} onPress={()=>{
-          <Text>{console.log("hola")}</Text>
-        }}>
+        <TouchableOpacity style={styles.searchBtn} onPress={()=>{handleClick(searchTerm)}}>
           <Image
             source={icons.search}
             resizeMode='contain'

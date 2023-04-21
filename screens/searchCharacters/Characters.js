@@ -19,7 +19,7 @@ const Characters = ({navigation }) => {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
-          if (route.name === 'Perfil') {
+          if (route.name === 'Character') {
             iconName = focused
               ? 'person-circle'
               : 'person-circle-outline';
@@ -34,7 +34,7 @@ const Characters = ({navigation }) => {
         tabBarInactiveTintColor: COLORS.darkblue,
       })}
       >
-        <Tab.Screen name="Perfil" component={Perfil} initialParams={{ characterId: characterId }}/>
+        <Tab.Screen name="Character" component={Perfil} initialParams={{ characterId: characterId }}/>
         <Tab.Screen name="Comics" component={Comics} initialParams={{ characterId: characterId }} />
       </Tab.Navigator>
     </NavigationContainer>

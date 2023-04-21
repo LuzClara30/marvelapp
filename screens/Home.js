@@ -16,7 +16,7 @@ const Home = ({navigation}) => {
                  <Welcome
                         searchTerm={searchTerm}
                         setSearchTerm={setSearchTerm}
-                        handleClick={() => {
+                        handleClick={(searchTerm) => {navigation.navigate('Search', {parametro: searchTerm, busqueda: "characters"})
                             }}
                     />
 
