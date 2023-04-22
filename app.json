@@ -1,8 +1,11 @@
 {
   "expo": {
+    "scheme": "com.test.marvelmobile",
+    "owner":"trabajoscr",
     "name": "marvelmobile",
     "slug": "marvelmobile",
     "version": "1.0.0",
+  
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -15,9 +18,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.test.marvelmobile"
     },
     "android": {
+      "package": "com.test.marvelmobile",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -25,6 +30,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e560e2bf-7451-44dd-9dfa-7d3c536b36e9"
+      }
     }
   }
 }

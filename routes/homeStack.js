@@ -7,6 +7,7 @@ import Home from "../screens/Home";
 import Login from "../screens/LoginScreen";
 import Characters from "../screens/searchCharacters/Characters";
 import Search from "../screens/Search";
+
 const headerStyle ={
     title: "Marvel app",
     headerTintColor: COLORS.lightWhite,
