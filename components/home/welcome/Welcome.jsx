@@ -3,7 +3,7 @@ import styles from './welcome.style';
 import { icons } from '../../../constants';
 import { useState } from 'react';
 
-const Welcome = ({searchTerm, setSearchTerm, handleClick}) => {
+const Welcome = ({searchTerm, setSearchTerm, handleClick, activeSearchType}) => {
 
   return (
     <View>
@@ -22,7 +22,7 @@ const Welcome = ({searchTerm, setSearchTerm, handleClick}) => {
           />
         </View>
 
-        <TouchableOpacity style={styles.searchBtn} onPress={()=>{handleClick(searchTerm)}}>
+        <TouchableOpacity style={styles.searchBtn} onPress={()=>{handleClick(searchTerm,activeSearchType)}}>
           <Image
             source={icons.search}
             resizeMode='contain'

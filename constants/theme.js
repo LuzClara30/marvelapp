@@ -4,6 +4,7 @@ const COLORS = {
     darkblue: "#111E47",
     blue: "#133C5B",
     red: "#E1050B",
+    darkred: "#9c0308",
   };
   
   const FONT = {
