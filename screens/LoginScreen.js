@@ -66,7 +66,7 @@ const Login = ({ navigation }) => {
             fontSize: 40,
             fontWeight: "bold",
             color: "#fff",
-            top: -120,
+            top: -130,
             textShadowColor: "black",
             textShadowOffset: { width: 5, height: 5 },
             textShadowRadius: 1,
@@ -76,7 +76,7 @@ const Login = ({ navigation }) => {
           Welcome to{" "}
         </Text>
         <Text
-          style={{ fontSize: 40, fontWeight: "bold", color: "#fff", top: -110,textShadowColor: "black",
+          style={{ fontSize: 40, fontWeight: "bold", color: "#fff", top: -120,textShadowColor: "black",
           textShadowOffset: { width: 5, height: 5 },
           textShadowRadius: 1, }}
         >
@@ -95,7 +95,7 @@ const Login = ({ navigation }) => {
         >
           <Image
             source={images.btn}
-            style={{ width: 150, height: 100, top: -135,left:8,borderRadius: 100,shadowColor:'black',shadowRadius:5 }}
+            style={{ width: 350, height:100,top:-10,left:-90,borderRadius: 100,shadowColor:'black',shadowRadius:5 }}
             resizeMode="contain"
           />
         </TouchableOpacity>
