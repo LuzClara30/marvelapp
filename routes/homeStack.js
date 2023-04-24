@@ -7,6 +7,7 @@ import Home from "../screens/Home";
 import Login from "../screens/LoginScreen";
 import Characters from "../screens/searchCharacters/Characters";
 import Search from "../screens/Search";
+import Creators from "../screens/searchCharacters/Creators";
 
 const headerStyle ={
     title: "Marvel app",
@@ -34,6 +35,11 @@ const screens = {
     },
     Characters:{
         screen: Characters,
+        navigationOptions: headerStyle,
+                       
+    },
+    Creators:{
+        screen: Creators,
         navigationOptions: headerStyle,
                        
     },

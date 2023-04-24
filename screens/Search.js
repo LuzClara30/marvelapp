@@ -64,7 +64,9 @@ const Search = ({navigation}) => {
           setSelectedItemId(item.id);
           busqueda === 'characters'?
           navigation.navigate('Characters', {characterId: item.id})
-          : console.log('hola1')
+          : busqueda === 'creators'?
+          navigation.navigate('Creators', {characterId: item.id})
+          : console.log("A")
           
         }}
         style={{ backgroundColor }}
