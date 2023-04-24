@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Comics from './Comics';
 import Perfil from './Perfil';
+import Creators from './Creators';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { COLORS } from '../../constants';
 
@@ -36,6 +37,7 @@ const Characters = ({navigation }) => {
       >
         <Tab.Screen name="Character" component={Perfil} initialParams={{ characterId: characterId }}/>
         <Tab.Screen name="Comics" component={Comics} initialParams={{ characterId: characterId }} />
+        <Tab.Screen name="Creator" component={Creators} initialParams={{ characterId: characterId }} />
       </Tab.Navigator>
     </NavigationContainer>
   );

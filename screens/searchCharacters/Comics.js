@@ -9,7 +9,7 @@ const Comics = ({route}) => {
   useEffect(() => {
     axios
       .get(
-        `https://gateway.marvel.com:443/v1/public/characters/${characterId}/comics?&ts=1&apikey=60aaa1ccf66c273c5d5983f388993fd1&hash=914796b1123c53d97218163f05ce53c5`
+        `https://gateway.marvel.com:443/v1/public/characters/${characterId}/comics?&ts=1&apikey=60aaa1ccf66c273c5d5983f388993fd1&hash=914796b1123c53d97218163f05ce53c5`//aqui este url no tiene que cambiar a comis?
       )
       .then((res) => {
         setComics(res.data.data.results);

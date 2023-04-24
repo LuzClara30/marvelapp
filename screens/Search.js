@@ -37,6 +37,7 @@ const Search = ({navigation}) => {
   const [consulta, setConsulta] = useState([]);
   //COLORS FLATLIST
   const [selectedItemId, setSelectedItemId] = useState(null);
+  
   //Llamada al API
   useEffect(() => {
     axios
@@ -53,6 +54,8 @@ const Search = ({navigation}) => {
 
   const renderItem = ({ item }) => {
     const backgroundColor = item.id === selectedItemId ? COLORS.red : "#fff";
+
+   
 
     return (
       <Item
