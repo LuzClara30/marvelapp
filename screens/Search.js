@@ -66,7 +66,7 @@ const Search = ({navigation}) => {
           navigation.navigate('Characters', {characterId: item.id})
           : busqueda === 'creators'?
           navigation.navigate('Creators', {characterId: item.id})
-          : console.log("A")
+          : navigation.navigate('ComicsScreen', {comicId: item.id})
           
         }}
         style={{ backgroundColor }}

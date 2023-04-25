@@ -8,6 +8,7 @@ import Login from "../screens/LoginScreen";
 import Characters from "../screens/searchCharacters/Characters";
 import Search from "../screens/Search";
 import Creators from "../screens/searchCharacters/Creators";
+import Comics from "../screens/searchComics/ComicsScreen";
 
 const headerStyle ={
     title: "Marvel app",
@@ -43,7 +44,11 @@ const screens = {
         navigationOptions: headerStyle,
                        
     },
-    
+    ComicsScreen:{
+        screen: Comics,
+        navigationOptions: headerStyle,
+
+    }
 };
 
 const HomeStack = createStackNavigator(screens);
