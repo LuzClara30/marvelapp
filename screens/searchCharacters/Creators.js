@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, SafeAreaView, StyleSheet, Image } from "react-native";
+import { Text, View, SafeAreaView, StyleSheet, Image,ImageBackground } from "react-native";
 import { COLORS, FONT, SIZES, images } from "../../constants";
 import axios from "axios";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { ImageBackground } from "react-native-web";
+
 
 const Creators = ({ navigation }) => {
   const characterId = navigation.getParam("characterId");
@@ -26,44 +26,39 @@ const Creators = ({ navigation }) => {
       .catch((error) => console.log(error));
   }, [searchTerm]);
 
-  const imagenes = [
-    { id: 1, uri: images.hulkCreator },
-    { id: 2, uri: images.spideyCreator },
-    { id: 3, uri: images.wolverineCr },
-    
-  ];
+  
   if (personaje.length != 0) {
     return (
-      <ImageBackground
-        style={styles.ImageBackground}
-        source={shuffle(imagenes)}
-        resizeMode="cover"
-      >
+      
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
           <View>
             <Image
               style={styles.image}
-              source={{ uri: path + "." + extension }}
+              source={images.collage2}
+              
+              
             />
           </View>
           <View style={{ margin: 10 }}>
             <Text style={styles.title}>{personaje.name}</Text>
           </View>
-          <View>
+          <View style={{position: 'absolute',zIndex: 1}}>
             <Text style={{ textAlign: "center" }}>{personaje.description}</Text>
-            <Text style={styles.subtitle}>Contenido</Text>
+            
             <Text style={styles.text}>
-              {"COMICS: " + personaje.comics.available}
+              {"Nombre: " + personaje.fullName}
             </Text>
             <Text style={styles.text}>
-              {"SERIES: " + personaje.series.available}
+              {"       SERIES: " + personaje.series.available}
             </Text>
             <Text style={styles.text}>
-              {"STORIES: " + personaje.stories.available}
+              {"       STORIES: " + personaje.stories.available}
             </Text>
           </View>
         </SafeAreaView>
-      </ImageBackground>
+        
+      
+      
     );
   }
 };
@@ -84,13 +79,17 @@ const styles = StyleSheet.create({
     color: COLORS.blue,
     marginTop: 10,
   },
+  text: {
+    fontSize: 40, fontWeight: "bold", color: "white", top: 250,textShadowColor: "black",
+          textShadowOffset: { width: 1, height: 1 },
+          textShadowRadius:10, left:55
+  },
   image: {
     width: "100%",
-    height: 300,
+    height: "100%",
+    
+    
   },
-  text: {
-    textAlign: "center",
-    fontFamily: FONT.bold,
-    color: "white",
-  },
+ 
+  
 });
