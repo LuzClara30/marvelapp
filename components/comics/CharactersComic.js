@@ -5,13 +5,14 @@ import {
   StyleSheet,
   SafeAreaView,
   FlatList,
+  Modal,
   Image,
   Dimensions,
   Animated,
-  ImageBackground
+  ImageBackground,
 } from "react-native";
 import { COLORS, FONT, SIZES } from "../../constants";
-import axios from "axios";
+import axios, { all } from "axios";
 
 const CharacterComic = ({ comicId }) => {
   const width = Dimensions.get("screen").width;
@@ -19,7 +20,9 @@ const CharacterComic = ({ comicId }) => {
   const [busqueda, setbusqueda] = useState(comicId);
   const [consulta, setConsulta] = useState([]);
   const ESPACIO_CONTENEDOR = width * 0.7;
-  const fondo = {uri: "https://i5.walmartimages.com/asr/2cca00b8-6884-4e7c-94bd-559dc18a4227.6d3322d4e23b30d0d59e4bdbfe05365a.jpeg"};
+  const fondo = {
+    uri: "https://i5.walmartimages.com/asr/2cca00b8-6884-4e7c-94bd-559dc18a4227.6d3322d4e23b30d0d59e4bdbfe05365a.jpeg",
+  };
   const ESPACIO = 10;
   renderItem = ({ item, index }) => {
     const inputRange = [
@@ -35,13 +38,11 @@ const CharacterComic = ({ comicId }) => {
     return (
       <View
         style={{
-          
           maxWidth: ESPACIO_CONTENEDOR,
         }}
       >
         <Animated.View
           style={{
-            
             marginHorizontal: ESPACIO,
             padding: ESPACIO,
             borderRadius: 34,
@@ -57,7 +58,9 @@ const CharacterComic = ({ comicId }) => {
             }}
           />
           <Text style={styles.title}>{item.name}</Text>
-          <Text numberOfLines={7} style={styles.description}>{item.description}</Text>
+          <Text numberOfLines={7} style={styles.description}>
+            {item.description}
+          </Text>
         </Animated.View>
       </View>
     );
@@ -77,30 +80,54 @@ const CharacterComic = ({ comicId }) => {
   if (consulta.length != 0) {
     return (
       <View style={styles.container}>
-      <ImageBackground source={fondo} resizeMode={"cover"} style={{flex:1, justifyContent: "center"}}
-
-      >
-        
-        <Animated.FlatList
-          data={consulta}
-          //permite observar como un movimiento circular
-          onScroll={Animated.event(
-            [{ nativeEvent: { contentOffset: { x: scrollX } } }],
-            { useNativeDriver: true }
-          )}
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-          decelerationRate={0}
-          snapToInterval={ESPACIO_CONTENEDOR}
-          scrollEventThrottle={16}
-          contentContainerStyle={{
-            paddingTop: 120,
-          }}
-          keyExtractor={(item) => item.id}
-          renderItem={renderItem}
-        />
-      
-      </ImageBackground>
+        <ImageBackground
+          source={fondo}
+          resizeMode={"cover"}
+          style={{ flex: 1, justifyContent: "center" }}
+        >
+          <Animated.FlatList
+            data={consulta}
+            //permite observar como un movimiento circular
+            onScroll={Animated.event(
+              [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+              { useNativeDriver: true }
+            )}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            decelerationRate={0}
+            snapToInterval={ESPACIO_CONTENEDOR}
+            scrollEventThrottle={16}
+            contentContainerStyle={{
+              paddingTop: 120,
+            }}
+            keyExtractor={(item) => item.id}
+            renderItem={renderItem}
+          />
+        </ImageBackground>
+      </View>
+    );
+  } else {
+    return (
+      <View style={styles.container}>
+        <ImageBackground
+          source={fondo}
+          resizeMode={"cover"}
+          style={{ flex: 1, justifyContent: "center" }}
+        >
+          <View style={{backgroundColor: COLORS.darkblue, borderRadius: 100}}>
+            <Text
+              style={{
+                fontFamily: FONT.bold,
+                fontSize: SIZES.xLarge,
+                color: COLORS.darkred,
+                marginTop: 2,
+                marginLeft: 50,
+              }}
+            >
+              There aren't Characters linked to this comic.
+            </Text>
+            </View>
+        </ImageBackground>
       </View>
     );
   }
@@ -110,7 +137,7 @@ export default CharacterComic;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    
+
     justifyContent: "center",
     backgroundColor: "#fff",
   },
