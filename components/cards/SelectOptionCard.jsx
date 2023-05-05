@@ -1,20 +1,29 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, Image } from 'react-native'
 
 import styles from './selectoptioncard.style';
+import { icons } from '../../constants';
 
-const SelectOptionCard = ({item,setActiveSearchType,selectedType,setSelectedType}) => {
+const SelectOptionCard = ({ item, setActiveSearchType, selectedType, setSelectedType }) => {
   return (
-    <TouchableOpacity 
-    style = {styles.container(selectedType, item)}
-    onPress={() => {
-      setActiveSearchType(item);
-      setSelectedType(item);
-    }}
+    <TouchableOpacity
+      style={styles.container(selectedType, item)}
+      onPress={() => {
+        setActiveSearchType(item);
+        setSelectedType(item);
+      }}
     >
       <View style={styles.infoContainer}>
-        <Text style={styles.option()} numberOfLines={1}> 
-        {item}
-        </Text>
+        <View style={styles.infoOptions1}>
+          <Text style={styles.options}>
+            {item}
+          </Text>
+        </View>
+        <View style={styles.infoOptions2}>
+        <Image
+          style={styles.logoOptions}
+          source={item=== 'characters'? icons.thanos: item=== 'creators'? icons.stan: icons.comics}
+        />
+        </View>
       </View>
     </TouchableOpacity>
   )

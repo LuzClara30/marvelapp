@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
   container: (selectedType, item) => ({
     width: 350,
     height: 90,
+    marginVertical: 2,
     padding: SIZES.xLarge,
     backgroundColor: selectedType === item ? COLORS.darkred : COLORS.red,
     borderRadius: SIZES.medium,
@@ -25,20 +26,43 @@ const styles = StyleSheet.create({
     width: "70%",
     height: "70%",
   },
-  companyName: {
-    fontSize: SIZES.medium,
-    fontFamily: FONT.regular,
-    color: "#B3AEC6",
+  logoOptions: {
+    width: 75,
+    borderRadius: SIZES.medium,
+    height: 75,
+    justifyContent: "space-around",
+    alignItems: "center",
+  },
+  options: {
+    fontSize: SIZES.large,
+    fontFamily: FONT.medium,
+    color: COLORS.white,
     marginTop: SIZES.small / 1.5,
+    textAlign: "center",
+    textAlignVertical: "center",
   },
   infoContainer: {
-    marginTop: SIZES.large,
+    flexDirection: "row",
+    marginTop: SIZES.small,
   },
   option: () => ({
     fontSize: SIZES.large,
     fontFamily: FONT.medium,
     color: COLORS.white,
   }),
+  infoOptions1: {
+    position: 'absolute',
+    maxWidth: 340/2,
+  },
+  infoOptions2: {
+    position: 'absolute',
+    maxWidth: 340/2,
+    justifyContent: "center",
+    right: 2,
+    top: 9,
+    bottom: 1,
+
+  },
   infoWrapper: {
     flexDirection: "row",
     marginTop: 5,

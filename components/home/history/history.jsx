@@ -15,7 +15,7 @@ const History = ({ btnLateFinding, lastItemId, busqueda, navigation }) => {
             </View>
 
             <TouchableOpacity
-                style={styles.containerHistory}
+                style={btnLateFinding ? styles.containerHistoryA : styles.containerHistoryDA}
                 onPress={() => {
                     btnLateFinding ?
                         busqueda === 'characters' ?
@@ -24,7 +24,6 @@ const History = ({ btnLateFinding, lastItemId, busqueda, navigation }) => {
                                 navigation.navigate('Creators', { characterId: lastItemId })
                                 : navigation.navigate('ComicsScreen', { comicId: lastItemId }):
                                 console.log("not active")
-
                 }}
             >
                 <Image

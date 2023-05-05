@@ -23,7 +23,15 @@ const styles = StyleSheet.create({
     cardsContainer: {
         marginTop: SIZES.medium,
     },
-    containerHistory: {
+    containerHistoryA: {
+        marginTop: SIZES.xLarge,
+        width: 350,
+        height: 50,
+        backgroundColor: COLORS.darkblue,
+        borderRadius: SIZES.medium,
+        justifyContent: "center",
+    },
+    containerHistoryDA: {
         marginTop: SIZES.xLarge,
         width: 350,
         height: 50,

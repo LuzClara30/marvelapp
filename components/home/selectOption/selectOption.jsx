@@ -20,7 +20,7 @@ const Selectoption = ({setActiveSearchType}) => {
         <FlatList
           data={searchTypes}
           ItemSeparatorComponent={() => <View style={{height: 10}} />}
-          renderItem={({item}) => (
+          renderItem={({item,logos}) => (
             <SelectOptionCard
             item={item}
             selectedType={selectedType}
