@@ -14,7 +14,6 @@ import { COLORS,FONT,icons,images } from "../constants";
 import axios from "axios";
 import styles from "../components/home/welcome/welcome.style";
 
-
 const Item = ({ item, onPress, style, busqueda }) => (
   <TouchableOpacity onPress={onPress} style={[stylesC.item, style]}>
     <View style={stylesC.containerFlatList}>
@@ -32,7 +31,11 @@ const Item = ({ item, onPress, style, busqueda }) => (
 const Search = ({navigation}) => {
   const parametro =navigation.getParam("parametro");
   const busqueda =navigation.getParam("busqueda");
+  const setBtnLateFinding =navigation.getParam("setBtnLateFinding");
   const [searchTerm, setSearchTerm] = useState(parametro);
+  const setLastItemId =navigation.getParam("setLastItemId");
+  const setBusqueda =navigation.getParam("setBusqueda");
+
   //API OBJECT
   const [consulta, setConsulta] = useState([]);
   //COLORS FLATLIST
@@ -55,19 +58,19 @@ const Search = ({navigation}) => {
   const renderItem = ({ item }) => {
     const backgroundColor = item.id === selectedItemId ? COLORS.red : "#fff";
 
-   
-
     return (
       <Item
         item={item}
         onPress={() => {
           setSelectedItemId(item.id);
+          setBtnLateFinding(true);
+          setLastItemId(item.id);
+          setBusqueda(busqueda);
           busqueda === 'characters'?
           navigation.navigate('Characters', {characterId: item.id})
           : busqueda === 'creators'?
           navigation.navigate('Creators', {characterId: item.id})
           : navigation.navigate('ComicsScreen', {comicId: item.id})
-          
         }}
         style={{ backgroundColor }}
         busqueda = {busqueda}
