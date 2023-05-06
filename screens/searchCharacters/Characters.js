@@ -37,7 +37,7 @@ const Characters = ({navigation }) => {
       >
         <Tab.Screen name="Character" component={Perfil} initialParams={{ characterId: characterId }}/>
         <Tab.Screen name="Comics" component={Comics} initialParams={{ characterId: characterId }} />
-        <Tab.Screen name="Creator" component={Creators} initialParams={{ characterId: characterId }} />
+        
       </Tab.Navigator>
     </NavigationContainer>
   );
