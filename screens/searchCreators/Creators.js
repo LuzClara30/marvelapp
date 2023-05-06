@@ -4,6 +4,7 @@ import { COLORS, FONT, SIZES, images } from "../../constants";
 import axios from "axios";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 const Creators = ({ navigation }) => {
@@ -31,30 +32,26 @@ const Creators = ({ navigation }) => {
     return (
       
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
-          <View>
-            <Image
+        <View style={styles.container}>
+      
+      <View style={styles.textContainer}>
+        <Text style={styles.title}>NOMBRE:</Text>
+        <Text style={styles.text}> {personaje.fullName} </Text>
+        <Text style={styles.title}>SERIES:</Text>
+        <Text style={styles.text}> {""+personaje.series.available}</Text>
+        <Text style={styles.title}>STORIES:</Text>
+        <Text style={styles.text}>{" "+personaje.stories.available}</Text>
+
+       
+        
+      </View>
+      <Image
+              style={styles.image2}
+              source={images.user} />
+    </View>
+    <Image
               style={styles.image}
-              source={images.collage2}
-              
-              
-            />
-          </View>
-          <View style={{ margin: 10 }}>
-            <Text style={styles.title}>{personaje.name}</Text>
-          </View>
-          <View style={{position: 'absolute',zIndex: 1}}>
-            <Text style={{ textAlign: "center" }}>{personaje.description}</Text>
-            
-            <Text style={styles.text}>
-              {"Nombre: " + personaje.fullName}
-            </Text>
-            <Text style={styles.text}>
-              {"       SERIES: " + personaje.series.available}
-            </Text>
-            <Text style={styles.text}>
-              {"       STORIES: " + personaje.stories.available}
-            </Text>
-          </View>
+              source={images.team2} />
         </SafeAreaView>
         
       
@@ -65,31 +62,47 @@ const Creators = ({ navigation }) => {
 
 export default Creators;
 const styles = StyleSheet.create({
-  title: {
-    textAlign: "left",
-    fontFamily: FONT.bold,
-    fontSize: SIZES.xLarge,
-    color: COLORS.red,
-    marginTop: 2,
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#FFF',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
-  subtitle: {
-    textAlign: "center",
-    fontFamily: FONT.bold,
-    fontSize: SIZES.xLarge,
-    color: COLORS.blue,
-    marginTop: 10,
+  textContainer: {
+    marginLeft: 10,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'red',
   },
   text: {
-    fontSize: 40, fontWeight: "bold", color: "white", top: 250,textShadowColor: "black",
-          textShadowOffset: { width: 1, height: 1 },
-          textShadowRadius:10, left:55
+    fontSize: 18,
+    color: 'blue',
+    fontWeight: 'bold',
+
   },
   image: {
     width: "100%",
     height: "100%",
-    
-    
   },
+  image2: {
+    width: 100,
+    height: 100,
+    left:100
+  },
+ 
+
  
   
 });

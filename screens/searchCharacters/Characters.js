@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Comics from './Comics';
 import Perfil from './Perfil';
-import Creators from './Creators';
+import Creators from '../searchCreators/Creators';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { COLORS } from '../../constants';
 
